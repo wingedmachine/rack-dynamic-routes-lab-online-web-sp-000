@@ -1,6 +1,6 @@
 class Application
 
-  @@item = []
+  @@items = []
 
   def call(env)
     resp = Rack::Response.new
@@ -8,7 +8,7 @@ class Application
 
     if req.path.match(/item/)
       item = req.path.split('/').last
-      if @@items.include?(item)
+      if @@items.map(&:name).include?(item)
         resp.write item.price
       else
         resp.status = 400
