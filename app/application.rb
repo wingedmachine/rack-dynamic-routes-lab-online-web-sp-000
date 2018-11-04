@@ -3,7 +3,7 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
-    if req.path.matches(/item/)
+    if req.path.match(/item/)
 
     else
       resp.status = 404
