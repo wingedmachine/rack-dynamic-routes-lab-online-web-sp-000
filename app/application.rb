@@ -7,8 +7,9 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path.match(/item/)
-      item = req.path.split('/').last
-      if @@items.map(&:name).include?(item)
+      item_name = req.path.split('/').last
+      item = @@items.detect { |item| item.name = item_name}
+      if item
         resp.write item.price
       else
         resp.status = 400
