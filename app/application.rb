@@ -9,9 +9,9 @@ class Application
     if req.path.match(/item/)
       item = req.path.split('/').last
       if @@items.include?(item)
-
+        resp.write item.price
       else
-
+        resp.write "Item not found"
       end
     else
       resp.status = 404
