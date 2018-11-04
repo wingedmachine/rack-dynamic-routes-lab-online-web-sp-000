@@ -8,7 +8,7 @@ class Application
 
     if req.path.match(/item/)
       binding.pry
-      if @@items.include?(
+      # if @@items.include?(
     else
       resp.status = 404
       resp.write "Route not found"
