@@ -7,8 +7,12 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path.match(/item/)
-      binding.pry
-      # if @@items.include?(
+      item = req.path.split('/').last
+      if @@items.include?(item)
+        
+      else
+
+      end
     else
       resp.status = 404
       resp.write "Route not found"
